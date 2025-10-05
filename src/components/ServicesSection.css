@@ -1,0 +1,163 @@
+.services-section {
+  text-align: center;
+  padding: 10px 20px 10px 20px; /* reduced top and bottom padding */
+  background-color: #f9f9f9;
+}
+
+.services-logo {
+  width: 100px;
+  height: auto;
+  margin: 0 auto 5px auto; /* less space below logo */
+}
+
+.services-intro {
+  color: gray;
+  font-size: 18px;
+  margin: 0 0 5px 0; /* reduced gap */
+}
+
+.services-heading {
+  color: #003366;
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 10px; /* reduced gap */
+}
+
+.services-cards {
+  display: flex;
+  justify-content: center;
+  gap: 20px; /* smaller horizontal gap */
+  flex-wrap: wrap;
+}
+
+/* Service Card */
+.service-card {
+  background-color: #fff;
+  width: 260px;
+  padding: 30px 20px; /* slightly smaller padding */
+  border-radius: 10px;
+  position: relative;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  text-align: center;
+  min-height: 300px; /* reduced height */
+}
+
+/* Image wrapper */
+.service-image-wrapper {
+  position: relative;
+}
+
+.service-image {
+  width: 100%;
+  height: 200px; /* slightly smaller */
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+/* Icon overlapping image */
+.service-icon {
+  position: absolute;
+  bottom: -40px; /* adjusted for smaller cards */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #003366;
+  color: #fff;
+  width: 80px;  /* smaller */
+  height: 80px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  z-index: 2;
+}
+
+/* Service Name */
+.service-name {
+  margin-top: 45px; /* reduced gap after icon */
+  color: #003366;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+/* Service Description */
+.service-desc {
+  color: gray;
+  font-size: 14px;
+  margin-top: 8px;
+  line-height: 1.4;
+}
+.view-all-btn {
+  margin-top: 30px;
+  background-color: #003366; /* dark blue */
+  color: #fff;
+  font-size: 20px;
+  font-weight: 600;
+  padding: 15px 40px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 250px; /* or use 100% for full container width */
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.view-all-btn:hover {
+  background-color: #002244;
+  transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .services-cards {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px; /* reduced vertical gap */
+  }
+
+  @media (max-width: 992px) {
+  .view-all-btn {
+    width: 80%; /* smaller width on mobile */
+    font-size: 18px;
+    padding: 12px 30px;
+  }
+}
+
+  .service-card {
+    width: 85%;
+    padding: 20px 15px;
+    min-height: 400px;
+  }
+
+  .service-image {
+    height: 160px;
+  }
+
+  .service-icon {
+    width: 70px;
+    height: 70px;
+    font-size: 24px;
+    bottom: -35px;
+  }
+
+  .service-name {
+    font-size: 18px;
+    margin-top: 40px;
+  }
+
+  .service-desc {
+    font-size: 13px;
+  }
+
+  .services-heading {
+    font-size: 28px;
+  }
+
+  .services-intro {
+    font-size: 16px;
+  }
+
+  .services-logo {
+    width: 80px;
+  }
+}
