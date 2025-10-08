@@ -3,24 +3,31 @@
   background-color: #fff;
   border-bottom: 1px solid #ddd;
   font-size: 16px;
-  position: relative;
+  position: sticky; /* ✅ Makes it stick */
+  top: 0; /* ✅ Stick to the top */
   z-index: 999;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05); /* Optional: soft shadow */
 }
 
 .mainmenu-container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
-  height: 70px;
+  height: 120px; /* ⬆️ Increased height */
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
+/* Logo Styles */
 .logo {
-  font-size: 22px;
-  font-weight: bold;
-  color: #333;
+  display: flex;
+  align-items: center;
+}
+
+.logo-img {
+  height: 180px; /* ⬆️ Set logo size */
+  display: block;
 }
 
 /* Center Menu */
@@ -28,6 +35,7 @@
   display: flex;
   gap: 25px;
   list-style: none;
+  align-items: center;
 }
 
 .menu li a {
@@ -41,7 +49,12 @@
   color: #ffb800;
 }
 
-/* Right button */
+/* Right Button */
+.menu-button {
+  display: flex;
+  align-items: center;
+}
+
 .menu-button a {
   display: inline-block;
   padding: 10px 15px;
@@ -60,22 +73,30 @@
   color: #fff;
 }
 
-/* Mobile */
+/* Hamburger Icon */
 .menu-toggle {
   display: none;
-  font-size: 22px;
+  font-size: 26px; /* ⬆️ Slightly bigger */
   cursor: pointer;
+  align-items: center;
 }
 
+/* Mobile Styles */
 @media (max-width: 768px) {
   .mainmenu-container {
     flex-wrap: wrap;
     height: auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  .logo-img {
+    height: 100px; /* ⬇️ Smaller logo for mobile */
   }
 
   .menu {
     position: absolute;
-    top: 70px;
+    top: 120px;
     left: 0;
     width: 100%;
     flex-direction: column;
@@ -101,10 +122,11 @@
     width: 100%;
     text-align: center;
     margin: 10px 0;
+    justify-content: center;
   }
 
   .menu-toggle {
-    display: block;
+    display: flex;
     margin-left: auto;
   }
 }

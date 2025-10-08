@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./HeroSlider.css";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import slider1 from "../assets/images/slider1.jpg";
@@ -20,34 +20,51 @@ const slides = [
 const HeroSlider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
+  // Auto slide every 5 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) =>
+        prevIndex === slides.length - 1 ? 0 : prevIndex + 1
+      );
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   const prevSlide = () => {
-    const index = currentIndex === 0 ? slides.length - 1 : currentIndex - 1;
-    setCurrentIndex(index);
+    setCurrentIndex(currentIndex === 0 ? slides.length - 1 : currentIndex - 1);
   };
 
   const nextSlide = () => {
-    const index = currentIndex === slides.length - 1 ? 0 : currentIndex + 1;
-    setCurrentIndex(index);
+    setCurrentIndex(currentIndex === slides.length - 1 ? 0 : currentIndex + 1);
   };
 
   return (
     <div className="hero-slider">
       <div
-        className="slide"
-        style={{ backgroundImage: `url(${slides[currentIndex].image})` }}
+        className="slides-wrapper"
+        style={{ transform: `translateX(-${currentIndex * 100}%)` }}
       >
-        <div className="slide-content">
-          <h1>{slides[currentIndex].heading}</h1>
-          <p>{slides[currentIndex].text}</p>
-        </div>
+        {slides.map((slide, index) => (
+          <div
+            className="slide"
+            key={index}
+            style={{ backgroundImage: `url(${slide.image})` }}
+          >
+            <div className="slide-content">
+              <h1>{slide.heading}</h1>
+              <p>{slide.text}</p>
+            </div>
+          </div>
+        ))}
+      </div>
 
-        {/* Arrows */}
-        <div className="arrow left-arrow" onClick={prevSlide}>
-          <FaArrowLeft />
-        </div>
-        <div className="arrow right-arrow" onClick={nextSlide}>
-          <FaArrowRight />
-        </div>
+      {/* Arrows */}
+      <div className="arrow left-arrow" onClick={prevSlide}>
+        <FaArrowLeft />
+      </div>
+      <div className="arrow right-arrow" onClick={nextSlide}>
+        <FaArrowRight />
       </div>
     </div>
   );

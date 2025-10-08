@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom"; // <-- import Link
+import { Link } from "react-router-dom";
 import "./MainMenu.css";
 import { FaBars, FaTimes } from "react-icons/fa";
+import logo from "../assets/images/logo.png"; // ✅ Adjust the path as needed
 
 const MainMenu = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -12,8 +13,8 @@ const MainMenu = () => {
       <div className="mainmenu-container">
         {/* Left: Logo */}
         <div className="logo">
-          <Link to="/" style={{ textDecoration: "none", color: "#003366", fontWeight: "bold", fontSize: "1.5rem" }}>
-            Caf Unsic
+          <Link to="/">
+            <img src={logo} alt="Logo" className="logo-img" />
           </Link>
         </div>
 
