@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import TopBar from "../components/TopBar";
 import MainMenu from "../components/MainMenu";
 import Footer from "../components/Footer";
+import uniforLogo from "../assets/images/uniforlogo.png";
 
 const UniFor = () => {
   const cards = [
@@ -10,20 +11,20 @@ const UniFor = () => {
       id: "formazione",
       icon: "🎓",
       title: "Corso di formazione CAF e Patronato",
-      desc: "Percorsi per formare operatori qualificati in ambito fiscale e previdenziale. 🧑‍🏫"
+      desc: "Percorsi per formare operatori qualificati in ambito fiscale e previdenziale. 🧑‍🏫",
     },
     {
       id: "lingua",
       icon: "🗣️",
       title: "Corsi ed esami di lingua italiana A2 e B1",
-      desc: "Necessari per permessi di soggiorno UE e cittadinanza italiana. 🇮🇹"
+      desc: "Necessari per permessi di soggiorno UE e cittadinanza italiana. 🇮🇹",
     },
     {
       id: "informatica",
       icon: "💻",
       title: "Corsi di informatica di base (Quadro EU)",
-      desc: "Percorsi per apprendere le competenze digitali fondamentali. 💾"
-    }
+      desc: "Percorsi per apprendere le competenze digitali fondamentali. 💾",
+    },
   ];
 
   const containerStyle = {
@@ -32,9 +33,14 @@ const UniFor = () => {
     padding: "0 20px",
   };
 
-  const headerStyle = { textAlign: "center", padding: "60px 20px 40px", backgroundColor: "#003366" };
-  const headerTitle = { fontSize: "3rem", marginBottom: "10px", color: "#ffffffff" };
-  const headerSubtitle = { fontSize: "1.2rem", color: "#ffffffff" };
+  const headerStyle = {
+    textAlign: "center",
+    padding: "60px 20px 40px",
+    backgroundColor: "#ffe604ff",
+  };
+  const headerTitle = { fontSize: "3rem", marginBottom: "10px", color: "#000000ff" };
+  const headerSubtitle = { fontSize: "1.2rem", color: "#020202ff" };
+  const logoStyle = { height: "180px", marginBottom: "20px" }; // Logo bigger
 
   const cardsContainer = {
     display: "grid",
@@ -70,12 +76,15 @@ const UniFor = () => {
       <MainMenu />
 
       {/* Header */}
-      <header style={headerStyle}>
-        <h1 style={headerTitle}>Servizi UniFor</h1>
-        <p style={headerSubtitle}>
-          Percorsi formativi per operatori CAF e Patronato e corsi professionali riconosciuti.
-        </p>
-      </header>
+<header style={{ ...headerStyle, padding: "5px 20px 5px" }}> {/* Minimal header height */}
+  {/* Logo */}
+  <img src={uniforLogo} alt="UniFor Logo" style={{ height: "280px", marginBottom: "5px" }} /> {/* Larger logo */}
+  <h1 style={headerTitle}>Servizi UniFor</h1>
+  <p style={headerSubtitle}>
+    Percorsi formativi per operatori CAF e Patronato e corsi professionali riconosciuti.
+  </p>
+</header>
+
 
       {/* Cards */}
       <div style={containerStyle}>
@@ -88,13 +97,13 @@ const UniFor = () => {
               onMouseEnter={(e) =>
                 Object.assign(e.currentTarget.style, {
                   transform: "translateY(-5px)",
-                  boxShadow: "0 8px 20px rgba(0,0,0,0.15)"
+                  boxShadow: "0 8px 20px rgba(0,0,0,0.15)",
                 })
               }
               onMouseLeave={(e) =>
                 Object.assign(e.currentTarget.style, {
                   transform: "translateY(0)",
-                  boxShadow: "0 4px 12px rgba(0,0,0,0.1)"
+                  boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
                 })
               }
             >
